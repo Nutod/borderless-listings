@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch} from 'react-router-dom'
+import { Switch } from 'react-router-dom'
 // URL -> component
 // / -> home
 // /listings -> Listings
@@ -8,13 +8,7 @@ import {BrowserRouter as Router, Switch} from 'react-router-dom'
 // /admin/business/add -> create a new business listing [RUD]
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        
-      </Switch>
-    </Router>
-  )
+  return <Switch></Switch>
 }
 
 export default App
