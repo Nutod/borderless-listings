@@ -1,4 +1,7 @@
-import { Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import Home from './pages/Home'
+import Listings from './pages/Listings'
+import Login from './pages/Login'
 // URL -> component
 // / -> home
 // /listings -> Listings
@@ -8,7 +11,19 @@ import { Switch } from 'react-router-dom'
 // /admin/business/add -> create a new business listing [RUD]
 
 function App() {
-  return <Switch></Switch>
+  return (
+    <Switch>
+      <Route path="/" exact>
+        <Home />
+      </Route>
+      <Route path="/location">
+        <Listings />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+    </Switch>
+  )
 }
 
 export default App
