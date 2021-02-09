@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 
 // TODO: Add React Helmet
+// TODO: Update the Favicon
 
 export default function Header() {
   return (
