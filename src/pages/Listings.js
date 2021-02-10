@@ -1,8 +1,16 @@
 import { Helmet } from 'react-helmet'
+import { useLocation } from 'react-router-dom'
+import { parse } from 'query-string'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function Listings() {
+  const location = useLocation()
+
+  const locationObject = parse(location.search)
+
+  console.log(location, locationObject)
+
   return (
     <>
       <Helmet>
