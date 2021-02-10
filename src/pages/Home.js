@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 
@@ -5,6 +6,182 @@ export default function Home() {
   return (
     <>
       <Header />
+      {/* Search */}
+      <section className="text-gray-600 body-font bg-gray-100">
+        <div className="container mx-auto flex flex-col px-5 py-24 pb-6 justify-center items-center">
+          <div className="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
+              Discover Incredible Businesses
+            </h1>
+            <p className="mb-8 leading-relaxed">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
+              harum sed, quasi illo suscipit facere quod debitis facilis
+              voluptatum! Itaque.
+            </p>
+            <div className="flex w-full justify-center items-end">
+              <div className="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
+                <input
+                  type="text"
+                  id="hero-field"
+                  name="hero-field"
+                  placeholder="Search listings"
+                  className="w-full bg-white rounded focus:ring-2 focus:ring-blue-200 focus:bg-transparent border border-gray-300 focus:border-blue-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+              <Link className="inline-flex text-white bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
+                Search
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Popular Listings */}
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <h1 className="title-font text-center sm:text-3xl text-2xl mb-8 font-medium text-gray-900">
+            Popular Businesses
+          </h1>
+          <div className="flex flex-wrap -m-4">
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+                <img
+                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
+                  src="https://placeimg.com/720/400/any"
+                  alt="blog"
+                />
+                <div className="px-8">
+                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                    CATEGORY
+                  </h2>
+                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
+                    Raclette Blueberry Nextious Level
+                  </h1>
+                  <p className="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <Link
+                    to="/"
+                    className="text-blue-700 inline-flex items-center"
+                  >
+                    Learn More
+                    <svg
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+                <img
+                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
+                  src="https://placeimg.com/720/400/any"
+                  alt="blog"
+                />
+                <div className="px-8">
+                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                    CATEGORY
+                  </h2>
+                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
+                    Raclette Blueberry Nextious Level
+                  </h1>
+                  <p className="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <Link
+                    to="/"
+                    className="text-blue-700 inline-flex items-center"
+                  >
+                    Learn More
+                    <svg
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 lg:w-1/3">
+              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+                <img
+                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
+                  src="https://placeimg.com/720/400/any"
+                  alt="blog"
+                />
+                <div className="px-8">
+                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                    CATEGORY
+                  </h2>
+                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
+                    Raclette Blueberry Nextious Level
+                  </h1>
+                  <p className="leading-relaxed mb-3">
+                    Photo booth fam kinfolk cold-pressed sriracha leggings
+                    jianbing microdosing tousled waistcoat.
+                  </p>
+                  <Link
+                    to="/"
+                    className="text-blue-700 inline-flex items-center"
+                  >
+                    Learn More
+                    <svg
+                      class="w-4 h-4 ml-2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5l7 7-7 7"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Link
+              to="/login"
+              className="inline-flex items-center bg-blue-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-base mt-4 md:mt-0"
+            >
+              View More
+              <svg
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
       <Footer />
     </>
   )
