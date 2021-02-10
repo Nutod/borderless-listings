@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className="text-gray-600 body-font border-b">
+    <header className="text-gray-600 body-font">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
         <Link
           to="/"
@@ -18,7 +18,7 @@ export default function Header() {
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            className="w-10 h-10 text-white p-2 bg-blue-700 rounded-full"
+            className="w-10 h-10 text-white p-2 bg-red-700 rounded-full"
             viewBox="0 0 24 24"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -28,7 +28,7 @@ export default function Header() {
 
         <Link
           to="/login"
-          className="inline-flex items-center bg-blue-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-base mt-4 md:mt-0"
+          className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
         >
           Login
         </Link>

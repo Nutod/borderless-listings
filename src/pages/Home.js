@@ -8,27 +8,31 @@ export default function Home() {
       <Header />
       {/* Search */}
       <section className="text-gray-600 body-font bg-gray-100">
-        <div className="container mx-auto flex flex-col px-5 py-24 pb-6 justify-center items-center">
-          <div className="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
-              Discover Incredible Businesses
+        <div className="container mx-auto flex flex-col px-5 py-24 pb-12 justify-center items-center">
+          <div className="w-full md:w-2/3 flex flex-col mb-16 items-center sm:items-center md:items-start text-center sm:text-center md:text-left">
+            <h1 className="title-font text-4xl sm:text-5xl md:text-6xl mb-4 text-gray-900">
+              <span className="font-bold">
+                Discover
+                <br />
+              </span>
+              <span className="font-light">Incredible Businesses</span>
             </h1>
             <p className="mb-8 leading-relaxed">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
               harum sed, quasi illo suscipit facere quod debitis facilis
               voluptatum! Itaque.
             </p>
-            <div className="flex w-full justify-center items-end">
-              <div className="relative mr-4 lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
+            <div className="flex w-full sm:justify-center md:justify-start items-end">
+              <div className="relative mr-4 flex-grow lg:w-full xl:w-1/2 w-2/4 md:w-full text-left">
                 <input
                   type="text"
                   id="hero-field"
                   name="hero-field"
                   placeholder="Search listings"
-                  className="w-full bg-white rounded focus:ring-2 focus:ring-blue-200 focus:bg-transparent border border-gray-300 focus:border-blue-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-white rounded focus:ring-2 focus:ring-red-200 focus:bg-transparent border border-gray-300 focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
-              <Link className="inline-flex text-white bg-blue-700 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
+              <Link className="inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
                 Search
               </Link>
             </div>
@@ -62,7 +66,7 @@ export default function Home() {
                   </p>
                   <Link
                     to="/"
-                    className="text-blue-700 inline-flex items-center"
+                    className="text-red-700 inline-flex items-center"
                   >
                     Learn More
                     <svg
@@ -101,7 +105,7 @@ export default function Home() {
                   </p>
                   <Link
                     to="/"
-                    className="text-blue-700 inline-flex items-center"
+                    className="text-red-700 inline-flex items-center"
                   >
                     Learn More
                     <svg
@@ -140,7 +144,7 @@ export default function Home() {
                   </p>
                   <Link
                     to="/"
-                    className="text-blue-700 inline-flex items-center"
+                    className="text-red-700 inline-flex items-center"
                   >
                     Learn More
                     <svg
@@ -163,7 +167,7 @@ export default function Home() {
           <div className="flex justify-center mt-8">
             <Link
               to="/login"
-              className="inline-flex items-center bg-blue-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-base mt-4 md:mt-0"
+              className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
             >
               View More
               <svg
