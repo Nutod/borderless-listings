@@ -2,6 +2,8 @@ import React from 'react'
 
 export const AuthContext = React.createContext()
 
+AuthContext.displayName = 'authContext'
+
 export function AuthContextProvider({ children }) {
   const [auth, setAuth] = React.useState(false)
 
