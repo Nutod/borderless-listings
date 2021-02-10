@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -5,6 +6,9 @@ import Header from '../components/Header'
 export default function Home() {
   return (
     <>
+      <Helmet>
+        <title>Business Directory &rarr; Home</title>
+      </Helmet>
       <Header />
       {/* Search */}
       <section className="text-gray-600 body-font bg-gray-100">
@@ -42,131 +46,152 @@ export default function Home() {
       {/* Popular Listings */}
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
-          <h1 className="title-font text-center sm:text-3xl text-2xl mb-8 font-medium text-gray-900">
-            Popular Businesses
+          <h1 className="title-font sm:text-4xl mb-8 text-center text-2xl mb-1 font-light text-gray-900">
+            <span className="font-medium">Popular</span>
+            {''} Businesses
           </h1>
-          <div className="flex flex-wrap -m-4">
-            <div className="p-4 lg:w-1/3">
-              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+
+          <div class="flex flex-wrap -m-4">
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="p-6 rounded-lg">
                 <img
-                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
-                  src="https://placeimg.com/720/400/any"
-                  alt="blog"
+                  class="h-40 rounded w-full object-cover object-center mb-6"
+                  src="https://dummyimage.com/720x400"
+                  alt="content"
                 />
-                <div className="px-8">
-                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                    CATEGORY
-                  </h2>
-                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                    Raclette Blueberry Nextious Level
-                  </h1>
-                  <p className="leading-relaxed mb-3">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                  <Link
-                    to="/"
-                    className="text-red-700 inline-flex items-center"
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                  CATEGORY
+                </h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                  Chichen Itza
+                </h2>
+                <p class="leading-relaxed text-base mb-4">
+                  Fingerstache flexitarian street art 8-bit waistcoat.
+                  Distillery hexagon disrupt edison bulbche.
+                </p>
+                <Link to="/" className="text-red-700 inline-flex items-center">
+                  View Business
+                  <svg
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                    Learn More
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </div>
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
               </div>
             </div>
-            <div className="p-4 lg:w-1/3">
-              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="p-6 rounded-lg">
                 <img
-                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
-                  src="https://placeimg.com/720/400/any"
-                  alt="blog"
+                  class="h-40 rounded w-full object-cover object-center mb-6"
+                  src="https://dummyimage.com/721x401"
+                  alt="content"
                 />
-                <div className="px-8">
-                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                    CATEGORY
-                  </h2>
-                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                    Raclette Blueberry Nextious Level
-                  </h1>
-                  <p className="leading-relaxed mb-3">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                  <Link
-                    to="/"
-                    className="text-red-700 inline-flex items-center"
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                  CATEGORY
+                </h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                  Colosseum Roma
+                </h2>
+                <p class="leading-relaxed text-base mb-4">
+                  Fingerstache flexitarian street art 8-bit waistcoat.
+                  Distillery hexagon disrupt edison bulbche.
+                </p>
+                <Link to="/" className="text-red-700 inline-flex items-center">
+                  View Business
+                  <svg
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                    Learn More
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </div>
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
               </div>
             </div>
-            <div className="p-4 lg:w-1/3">
-              <div className="h-full bg-gray-100 bg-opacity-75 pb-8 rounded-lg overflow-hidden text-center relative">
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="p-6 rounded-lg">
                 <img
-                  className="lg:h-48 md:h-36 w-full mb-6 object-cover object-center"
-                  src="https://placeimg.com/720/400/any"
-                  alt="blog"
+                  class="h-40 rounded w-full object-cover object-center mb-6"
+                  src="https://dummyimage.com/722x402"
+                  alt="content"
                 />
-                <div className="px-8">
-                  <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
-                    CATEGORY
-                  </h2>
-                  <h1 className="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">
-                    Raclette Blueberry Nextious Level
-                  </h1>
-                  <p className="leading-relaxed mb-3">
-                    Photo booth fam kinfolk cold-pressed sriracha leggings
-                    jianbing microdosing tousled waistcoat.
-                  </p>
-                  <Link
-                    to="/"
-                    className="text-red-700 inline-flex items-center"
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                  CATEGORY
+                </h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                  Great Pyramid of Giza
+                </h2>
+                <p class="leading-relaxed text-base mb-4">
+                  Fingerstache flexitarian street art 8-bit waistcoat.
+                  Distillery hexagon disrupt edison bulbche.
+                </p>
+                <Link to="/" className="text-red-700 inline-flex items-center">
+                  View Business
+                  <svg
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   >
-                    Learn More
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </div>
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
+              </div>
+            </div>
+            <div class="xl:w-1/4 md:w-1/2 p-4">
+              <div class="p-6 rounded-lg">
+                <img
+                  class="h-40 rounded w-full object-cover object-center mb-6"
+                  src="https://dummyimage.com/723x403"
+                  alt="content"
+                />
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                  CATEGORY
+                </h3>
+                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                  San Francisco
+                </h2>
+                <p class="leading-relaxed text-base mb-4">
+                  Fingerstache flexitarian street art 8-bit waistcoat.
+                  Distillery hexagon disrupt edison bulbche.
+                </p>
+                <Link to="/" className="text-red-700 inline-flex items-center">
+                  View Business
+                  <svg
+                    class="w-4 h-4 ml-2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </Link>
               </div>
             </div>
           </div>
           <div className="flex justify-center mt-8">
             <Link
-              to="/login"
+              to="/listings"
               className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
             >
               View More
