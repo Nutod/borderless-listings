@@ -1,16 +1,19 @@
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Home() {
+  const [searchString, setSearchString] = React.useState('')
+
   return (
     <>
       <Helmet>
         <title>Business Directory &rarr; Home</title>
       </Helmet>
       <Header />
-      {/* Search */}
+
       <section className="text-gray-600 body-font bg-gray-100">
         <div className="container mx-auto flex flex-col px-5 py-24 pb-12 justify-center items-center">
           <div className="w-full md:w-2/3 flex flex-col mb-16 items-center sm:items-center md:items-start text-center sm:text-center md:text-left">
@@ -33,17 +36,25 @@ export default function Home() {
                   id="hero-field"
                   name="hero-field"
                   placeholder="Search listings"
+                  onChange={({ target }) => setSearchString(target.value)}
                   className="w-full bg-white rounded focus:ring-2 focus:ring-red-200 focus:bg-transparent border border-gray-300 focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
-              <Link className="inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+              <Link
+                className={`inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 active:bg-red-800 rounded text-lg ${
+                  searchString
+                    ? `opacity-100`
+                    : `opacity-50 pointer-events-none`
+                }`}
+                to={`/listings?name=${searchString}`}
+              >
                 Search
               </Link>
             </div>
           </div>
         </div>
       </section>
-      {/* Popular Listings */}
+
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <h1 className="title-font sm:text-4xl mb-8 text-center text-2xl mb-1 font-light text-gray-900">

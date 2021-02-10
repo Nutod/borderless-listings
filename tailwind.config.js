@@ -3,9 +3,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: theme => ({
-        hero: "url('/src/assets/hero-bg.jpg')",
-      }),
+      backgroundColor: ['active'],
     },
   },
   variants: {
