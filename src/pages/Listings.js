@@ -11,6 +11,7 @@ import useCategories from '../hooks/useCategories'
 
 export default function Listings() {
   const [category, setCategory] = React.useState('all')
+  const [categoryListings, setCategoryListings] = React.useState([])
   const listings = useListings()
   const categories = useCategories()
   const location = useLocation()
@@ -18,8 +19,14 @@ export default function Listings() {
   const locationObject = parse(location.search)
 
   React.useEffect(() => {
-    console.log('State updated')
-  }, [category])
+    if (category === 'all') {
+      setCategoryListings(listings)
+    } else {
+      setCategoryListings(
+        listings.filter(listing => listing.categories.includes(category))
+      )
+    }
+  }, [category, listings])
 
   if (locationObject.name) {
     return <ListingsSearch name={locationObject.name} />
@@ -47,7 +54,7 @@ export default function Listings() {
                   onChange={({ target }) => setCategory(target.value)}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 >
-                  {categories.map(category => (
+                  {['all', ...categories].map(category => (
                     <option key={category} value={category}>
                       {category}
                     </option>
@@ -57,7 +64,7 @@ export default function Listings() {
             </div>
           </div>
           <div className="flex flex-wrap -m-4">
-            {listings.map(listing => (
+            {categoryListings.map(listing => (
               <Card
                 key={listing.id}
                 listing={listing}
