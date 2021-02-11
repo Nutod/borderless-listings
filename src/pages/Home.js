@@ -62,21 +62,21 @@ export default function Home() {
             {''} Businesses
           </h1>
 
-          <div class="flex flex-wrap -m-4">
-            <div class="xl:w-1/4 md:w-1/2 p-4">
-              <div class="p-6 rounded-lg">
+          <div className="flex flex-wrap -m-4">
+            <div className="xl:w-1/4 md:w-1/2 p-4">
+              <div className="p-6 rounded-lg">
                 <img
-                  class="h-40 rounded w-full object-cover object-center mb-6"
+                  className="h-40 rounded w-full object-cover object-center mb-6"
                   src="https://dummyimage.com/720x400"
                   alt="content"
                 />
-                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">
+                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
                   CATEGORY
                 </h3>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">
+                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
                   Chichen Itza
                 </h2>
-                <p class="leading-relaxed text-base mb-4">
+                <p className="leading-relaxed text-base mb-4">
                   Fingerstache flexitarian street art 8-bit waistcoat.
                   Distillery hexagon disrupt edison bulbche.
                 </p>

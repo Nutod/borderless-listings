@@ -1,8 +1,11 @@
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Home from './pages/Home'
 import Listing from './pages/Listing'
 import Listings from './pages/Listings'
 import Login from './pages/Login'
+import { useLocalStorageState } from './hooks/useLocalStorage'
+import { ListingsData } from './_data'
 
 // URL -> component
 // / -> home
@@ -13,6 +16,14 @@ import Login from './pages/Login'
 // /admin/business/add -> create a new business listing [C]
 
 function App() {
+  const [listings, setListings] = useLocalStorageState('listings')
+
+  React.useEffect(() => {
+    if (!listings) {
+      setListings(ListingsData)
+    }
+  }, [listings, setListings])
+
   return (
     <Switch>
       <Route path="/" exact>

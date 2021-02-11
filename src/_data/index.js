@@ -1,4 +1,4 @@
-const Listings = [
+export const ListingsData = [
   {
     id: '602438a99ef91c56415d2a16',
     name: 'Volkman - Douglas',
@@ -120,5 +120,3 @@ const Listings = [
     image: 'https://placeimg.com/160/160/any',
   },
 ]
-
-export default Listings

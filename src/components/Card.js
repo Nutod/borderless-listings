@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export default function Card(props) {
+export default function Card({ listing, to }) {
   //   const {} = props
 
   return (
@@ -21,7 +21,7 @@ export default function Card(props) {
           Fingerstache flexitarian street art 8-bit waistcoat. Distillery
           hexagon disrupt edison bulbche.
         </p>
-        <Link to="/" className="text-red-700 inline-flex items-center">
+        <Link to={to} className="text-red-700 inline-flex items-center">
           View Business
           <svg
             class="w-4 h-4 ml-2"
