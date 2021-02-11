@@ -2,7 +2,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 
-export default function NotFound() {
+export default function NotFound({ text }) {
   return (
     <>
       <Header />
@@ -12,14 +12,18 @@ export default function NotFound() {
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               Four Oh Four!
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
-              The page you are trying to access does not exist. Let's help you
-              navigate - click{' '}
-              <Link to="/">
-                <span className="underline text-red-700">here</span>
-              </Link>{' '}
-              to go home
-            </p>
+            {text ? (
+              text
+            ) : (
+              <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+                The page you are trying to access does not exist. Let's help you
+                navigate - click{' '}
+                <Link to="/">
+                  <span className="underline text-red-700">here</span>
+                </Link>{' '}
+                to go home
+              </p>
+            )}
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import { parse } from 'query-string'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useListings from '../hooks/useListings'
+import ListingsSearch from './ListingsSearch'
 import Card from '../components/Card'
 
 export default function Listings() {
@@ -13,7 +14,7 @@ export default function Listings() {
   const locationObject = parse(location.search)
 
   if (locationObject.name) {
-    return <p>Searching Component</p>
+    return <ListingsSearch name={locationObject.name} />
   }
 
   return (

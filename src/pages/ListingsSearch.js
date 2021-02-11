@@ -3,11 +3,18 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useListingsSearch from '../hooks/useListingsSearch'
 import Card from '../components/Card'
+import NotFound from './NotFound'
 
 export default function ListingsSearch({ name }) {
   const listings = useListingsSearch(name)
 
-  console.log(listings)
+  if (!listings.length) {
+    return (
+      <NotFound
+        text={`There is no search result for the query you made for resource ${name}`}
+      />
+    )
+  }
 
   return (
     <>

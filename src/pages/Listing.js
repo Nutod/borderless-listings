@@ -4,14 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useListing from '../hooks/useListing'
 import NotFound from './NotFound'
-
-const categoryStyles = [
-  'bg-green-100',
-  'bg-red-100',
-  'bg-yellow-100',
-  'bg-blue-100',
-  'bg-indigo-100',
-]
+import { categoryStyles } from '../components/categoryStyles'
 
 export default function Listing() {
   const { id } = useParams()
