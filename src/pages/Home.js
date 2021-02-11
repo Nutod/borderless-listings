@@ -9,8 +9,6 @@ import Card from '../components/Card'
 export default function Home({ listings }) {
   const [searchString, setSearchString] = React.useState('')
 
-  console.log(listings)
-
   return (
     <>
       <Helmet>

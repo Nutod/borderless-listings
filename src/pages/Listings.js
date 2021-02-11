@@ -3,8 +3,11 @@ import { useLocation } from 'react-router-dom'
 import { parse } from 'query-string'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import useListings from '../hooks/useListings'
+import Card from '../components/Card'
 
 export default function Listings() {
+  const listings = useListings()
   const location = useLocation()
 
   const locationObject = parse(location.search)
@@ -19,166 +22,43 @@ export default function Listings() {
       <Header />
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap w-full mb-10">
-            <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
-              <h2 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-                Categories
-              </h2>
+          {/* <div class="flex flex-wrap w-full mb-20">
+            <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+                Category
+              </h1>
+              <div class="w-20 rounded">
+                <select
+                  name=""
+                  id=""
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                >
+                  <option value="">1</option>
+                  <option value="">2</option>
+                </select>
+                <input type="email" id="email" name="email" />
+              </div>
             </div>
-          </div>
+            <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">
+              <div class="flex lg:w-2/3 w-full sm:flex-row flex-col ml-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+                <div class="relative flex-grow w-full">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  />
+                </div>
+                <button class="text-white bg-red-700 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
+                  Search
+                </button>
+              </div>
+            </p>
+          </div> */}
           <div className="flex flex-wrap -m-4">
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/720x400"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  Chichen Itza
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/721x401"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  Colosseum Roma
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/722x402"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  Great Pyramid of Giza
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/723x403"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  San Francisco
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/723x403"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  San Francisco
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/723x403"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  San Francisco
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/723x403"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  San Francisco
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
-            <div className="xl:w-1/4 md:w-1/2 p-4">
-              <div className="bg-gray-100 p-6 rounded-lg">
-                <img
-                  className="h-40 rounded w-full object-cover object-center mb-6"
-                  src="https://dummyimage.com/723x403"
-                  alt="content"
-                />
-                <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                  SUBTITLE
-                </h3>
-                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                  San Francisco
-                </h2>
-                <p className="leading-relaxed text-base">
-                  Fingerstache flexitarian street art 8-bit waistcoat.
-                  Distillery hexagon disrupt edison bulbche.
-                </p>
-              </div>
-            </div>
+            {listings.map(listing => (
+              <Card listing={listing} to={`/listings/${listing.id}`} bg />
+            ))}
           </div>
         </div>
       </section>

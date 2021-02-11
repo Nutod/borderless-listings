@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
-export default function Card({ listing, to }) {
+export default function Card({ listing, to, bg }) {
   const { name, description, image } = listing
 
   return (
     <div class="xl:w-1/4 md:w-1/2 p-4">
-      <div class="p-6 rounded-lg">
+      <div class={`p-6 rounded-lg ${bg ? `bg-gray-100` : ''}`}>
         <img
           class="h-40 rounded w-full object-cover object-center mb-6"
           src={image}
