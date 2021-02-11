@@ -7,11 +7,10 @@ import Login from './pages/Login'
 import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
 import NotFound from './pages/NotFound'
+import AdminListings from './pages/AdminListings'
+import AdminListingsAdd from './pages/AdminListingsAdd'
+import ProtectedRoute from './hoc/ProtectedRoute'
 
-// URL -> component
-// / -> home
-// /listings -> Listings
-// /lisings?name=businessname -> Listings
 // /login -> Login compoent
 // /admin/business -> view all businesses [RUD]
 // /admin/business/add -> create a new business listing [C]
@@ -39,6 +38,12 @@ function App() {
       <Route path="/login">
         <Login />
       </Route>
+      <ProtectedRoute path="/admin/listings" exact>
+        <AdminListings />
+      </ProtectedRoute>
+      <ProtectedRoute path="/admin/listings/add">
+        <AdminListingsAdd />
+      </ProtectedRoute>
       <Route path="*">
         <NotFound />
       </Route>
