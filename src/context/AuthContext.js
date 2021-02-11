@@ -7,12 +7,11 @@ AuthContext.displayName = 'authContext'
 export function AuthContextProvider({ children }) {
   const [auth, setAuth] = React.useState(false)
 
-  const toggleAuth = React.useCallback(
-    () => setAuth(previousAuthValue => !previousAuthValue),
-    []
-  )
+  const login = React.useCallback(() => setAuth(true), [])
 
-  const value = { auth, toggleAuth }
+  const logout = React.useCallback(() => setAuth(false), [])
+
+  const value = { auth, login, logout }
 
   return <AuthContext.Provider {...{ value }}>{children}</AuthContext.Provider>
 }
