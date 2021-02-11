@@ -6,6 +6,7 @@ import Listings from './pages/Listings'
 import Login from './pages/Login'
 import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
+import NotFound from './pages/NotFound'
 
 // URL -> component
 // / -> home
@@ -27,7 +28,7 @@ function App() {
   return (
     <Switch>
       <Route path="/" exact>
-        <Home />
+        <Home listings={listings.slice(0, 4)} />
       </Route>
       <Route path="/listings" exact>
         <Listings />
@@ -37,6 +38,9 @@ function App() {
       </Route>
       <Route path="/login">
         <Login />
+      </Route>
+      <Route path="*">
+        <NotFound />
       </Route>
     </Switch>
   )

@@ -3,15 +3,13 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import useListings from '../hooks/useListings'
-import { useWait } from '../hooks/useWait'
 import Loading from '../components/Loading'
 import Card from '../components/Card'
 
-export default function Home() {
-  const listings = useListings()
-  const wait = useWait()
+export default function Home({ listings }) {
   const [searchString, setSearchString] = React.useState('')
+
+  console.log(listings)
 
   return (
     <>
@@ -68,7 +66,7 @@ export default function Home() {
             {''} Businesses
           </h1>
 
-          {wait ? (
+          {!listings ? (
             <Loading />
           ) : (
             <div className="flex flex-wrap -m-4">
