@@ -1,7 +1,7 @@
 import React from 'react'
 
 export function useWait(delay = 1000) {
-  const [show, setShow] = React.useState(false)
+  const [show, setShow] = React.useState(true)
 
   React.useEffect(() => {
     let id = window.setTimeout(() => setShow(previous => !previous), delay)
