@@ -12,7 +12,9 @@ export default function Listings() {
 
   const locationObject = parse(location.search)
 
-  console.log(location, locationObject)
+  if (locationObject.name) {
+    return <p>Searching Component</p>
+  }
 
   return (
     <>
