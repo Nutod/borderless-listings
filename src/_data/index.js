@@ -7,7 +7,7 @@ export const ListingsData = [
     phone: '467-576-6947',
     email: 'volkmandouglas@yahoo.com',
     categories: [],
-    image: 'https://placeimg.com/160/160/any',
+    image: 'https://placeimg.com/160/160/arch',
   },
   {
     id: '602438a99ef91c56415d2a17',
@@ -21,11 +21,11 @@ export const ListingsData = [
   },
   {
     id: '602438a99ef91c56415d2a18',
-    name: 'Jenkins, Heidenreich and Schaden',
+    name: 'Jenkins and Heidenreich',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
     phone: '467-576-6947',
-    email: 'jenkinsheidenreichandschaden@yahoo.com',
+    email: 'jenkinsheidenreich@yahoo.com',
     categories: [],
     image: 'https://placeimg.com/160/160/any',
   },

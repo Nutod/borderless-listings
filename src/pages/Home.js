@@ -6,13 +6,12 @@ import Footer from '../components/Footer'
 import useListings from '../hooks/useListings'
 import { useWait } from '../hooks/useWait'
 import Loading from '../components/Loading'
+import Card from '../components/Card'
 
 export default function Home() {
   const listings = useListings()
   const wait = useWait()
   const [searchString, setSearchString] = React.useState('')
-
-  console.log(listings)
 
   return (
     <>
@@ -73,43 +72,9 @@ export default function Home() {
             <Loading />
           ) : (
             <div className="flex flex-wrap -m-4">
-              <div className="xl:w-1/4 md:w-1/2 p-4">
-                <div className="p-6 rounded-lg">
-                  <img
-                    className="h-40 rounded w-full object-cover object-center mb-6"
-                    src="https://dummyimage.com/720x400"
-                    alt="content"
-                  />
-                  <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">
-                    CATEGORY
-                  </h3>
-                  <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                    Chichen Itza
-                  </h2>
-                  <p className="leading-relaxed text-base mb-4">
-                    Fingerstache flexitarian street art 8-bit waistcoat.
-                    Distillery hexagon disrupt edison bulbche.
-                  </p>
-                  <Link
-                    to="/"
-                    className="text-red-700 inline-flex items-center"
-                  >
-                    View Business
-                    <svg
-                      class="w-4 h-4 ml-2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </Link>
-                </div>
-              </div>
+              {listings.slice(0, 4).map(listing => (
+                <Card listing={listing} to={`/listings/${listing.id}`} />
+              ))}
             </div>
           )}
 
