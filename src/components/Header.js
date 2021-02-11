@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 
-// TODO: Add React Helmet
+// TODO: Add Error Boundary
 // TODO: Update the Favicon
 
 export default function Header() {
   return (
-    <header className="text-gray-600 body-font shadow">
+    <header className="text-gray-600 body-font border-b">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
         <Link
           to="/"
