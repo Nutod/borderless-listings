@@ -69,7 +69,11 @@ export default function Home({ listings }) {
           ) : (
             <div className="flex flex-wrap -m-4">
               {listings.slice(0, 4).map(listing => (
-                <Card listing={listing} to={`/listings/${listing.id}`} />
+                <Card
+                  key={listing.id}
+                  listing={listing}
+                  to={`/listings/${listing.id}`}
+                />
               ))}
             </div>
           )}
@@ -81,7 +85,7 @@ export default function Home({ listings }) {
             >
               View More
               <svg
-                class="w-4 h-4 ml-2"
+                className="w-4 h-4 ml-2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth="2"

@@ -53,6 +53,7 @@ export default function Listing() {
               Categories:{' '}
               {listing.categories.map((category, index) => (
                 <span
+                  key={category}
                   className={`${categoryStyles[index]} px-2 py-1 rounded-xl mx-1`}
                 >
                   {category}
