@@ -2,8 +2,6 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 import { parse } from 'query-string'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 import useListings from 'hooks/useListings'
 import ListingsSearch from './ListingsSearch'
 import Card from 'components/Card'
@@ -37,8 +35,6 @@ export default function Listings() {
       <Helmet>
         <title>Business Directory &rarr; Listings</title>
       </Helmet>
-
-      <Header />
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -75,8 +71,6 @@ export default function Listings() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

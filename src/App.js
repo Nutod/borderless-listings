@@ -10,6 +10,8 @@ import NotFound from './pages/NotFound'
 import AdminListings from './pages/AdminListings'
 import AdminListing from './pages/AdminListing'
 import { useAuth } from 'context/AuthContext'
+import AuthenticatedApp from 'authenticated-app'
+import UnauthenticatedApp from 'unauthenticated-app'
 
 // /login -> Login compoent
 // /admin/business -> view all businesses [RUD]
@@ -27,31 +29,31 @@ function App() {
     }
   }, [listings, setListings])
 
-  return (
-    <Switch>
-      <Route path="/" exact>
-        <Home listings={listings.slice(0, 4)} />
-      </Route>
-      <Route path="/listings" exact>
-        <Listings />
-      </Route>
-      <Route path="/listings/:id">
-        <Listing />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/admin/listings" exact>
-        <AdminListings />
-      </Route>
-      <Route path="/admin/listings/:id">
-        <AdminListing />
-      </Route>
-      <Route path="*">
-        <NotFound />
-      </Route>
-    </Switch>
-  )
+  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />
 }
 
 export default App
+
+// <Switch>
+//   <Route path="/" exact>
+//     <Home listings={listings.slice(0, 4)} />
+//   </Route>
+//   <Route path="/listings" exact>
+//     <Listings />
+//   </Route>
+//   <Route path="/listings/:id">
+//     <Listing />
+//   </Route>
+//   <Route path="/login">
+//     <Login />
+//   </Route>
+//   <Route path="/admin/listings" exact>
+//     <AdminListings />
+//   </Route>
+//   <Route path="/admin/listings/:id">
+//     <AdminListing />
+//   </Route>
+//   <Route path="*">
+//     <NotFound />
+//   </Route>
+// </Switch>

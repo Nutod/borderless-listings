@@ -1,11 +1,8 @@
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 import { Link } from 'react-router-dom'
 
 export default function NotFound({ text }) {
   return (
     <>
-      <Header />
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto my-36">
           <div className="flex flex-col text-center w-full mb-12">
@@ -27,7 +24,6 @@ export default function NotFound({ text }) {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   )
 }
