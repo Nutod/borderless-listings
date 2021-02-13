@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import useListingsSearch from '../hooks/useListingsSearch'
-import Card from '../components/Card'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import useListingsSearch from 'hooks/useListingsSearch'
+import Card from 'components/Card'
 import NotFound from './NotFound'
 
 export default function ListingsSearch({ name }) {

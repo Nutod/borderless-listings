@@ -2,12 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 import { parse } from 'query-string'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import useListings from '../hooks/useListings'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import useListings from 'hooks/useListings'
 import ListingsSearch from './ListingsSearch'
-import Card from '../components/Card'
-import useCategories from '../hooks/useCategories'
+import Card from 'components/Card'
+import useCategories from 'hooks/useCategories'
 
 export default function Listings() {
   const [category, setCategory] = React.useState('all')

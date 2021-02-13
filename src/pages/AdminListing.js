@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
 import Modal from 'react-modal'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import useListing from '../hooks/useListing'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
+import useListing from 'hooks/useListing'
 import NotFound from './NotFound'
-import { categoryStyles } from '../components/categoryStyles'
+import { categoryStyles } from 'components/categoryStyles'
 
 const customStyles = {
   content: {
