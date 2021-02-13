@@ -5,7 +5,6 @@ async function getToken() {
 }
 
 function handleUserResponse(user) {
-  console.log(user)
   window.localStorage.setItem(localStorageKey, user.username)
   return user
 }

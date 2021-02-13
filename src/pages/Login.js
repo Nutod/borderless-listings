@@ -3,27 +3,34 @@ import { Helmet } from 'react-helmet'
 import { useForm } from 'react-hook-form'
 import { Redirect } from 'react-router-dom'
 import { useAuth } from 'context/AuthContext'
+import Loading from 'components/Loading'
 
 // SUCCESSFUL Login will redirect to the admin page
 // Otherwise, display the toast component
 
 export default function Login() {
-  const { login, user } = useAuth()
-  const [redirect, setRedirect] = React.useState(false)
   const { register, errors, handleSubmit } = useForm()
+  const authObject = useAuth()
+  const [redirect, setRedirect] = React.useState(false)
+  const [loading, setLoading] = React.useState(false)
+
   const onSubmit = ({ username, password }) => {
+    setLoading(true)
     if (
       username === process.env.REACT_APP_USERNAME &&
       password === process.env.REACT_APP_PASSWORD
     ) {
-      login()
+      authObject.login({ username, password })
       setRedirect(true)
+      setLoading(false)
     } else {
       alert('Admin details not correct')
+      setLoading(false)
     }
   }
 
-  console.log(user)
+  // console.log(user)
+  console.log(authObject)
 
   if (redirect) {
     return <Redirect to="/admin/listings" />
@@ -87,9 +94,12 @@ export default function Login() {
             </div>
             <button
               type="submit"
-              className="text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg"
+              disabled={loading}
+              className={`text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg ${
+                loading && 'opacity-50 pointer-events-none'
+              }`}
             >
-              Login
+              {loading ? <Loading /> : 'Login'}
             </button>
           </form>
         </div>

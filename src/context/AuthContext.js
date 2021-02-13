@@ -9,15 +9,14 @@ async function bootstrapAppData() {
   let user = null
 
   const token = await auth.getToken()
+
   if (token) {
     // in the real world, the token will be used to fetch actual user data
     const data = await client('users/1')
 
-    console.log(data)
     user = data
   }
 
-  alert(user)
   return user
 }
 

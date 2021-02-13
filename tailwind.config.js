@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: ['active'],
+      opacity: ['disabled'],
     },
   },
   variants: {

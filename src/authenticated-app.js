@@ -22,6 +22,9 @@ function AuthenticatedAppRoutes() {
       <Route path="/" exact>
         <Home />
       </Route>
+      <Route path="/admin/listings" exact>
+        <AdminListings />
+      </Route>
       <Route path="/listings" exact>
         <Listings />
       </Route>

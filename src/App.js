@@ -1,21 +1,9 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Home from './pages/Home'
-import Listing from './pages/Listing'
-import Listings from './pages/Listings'
-import Login from './pages/Login'
 import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
-import NotFound from './pages/NotFound'
-import AdminListings from './pages/AdminListings'
-import AdminListing from './pages/AdminListing'
 import { useAuth } from 'context/AuthContext'
 import AuthenticatedApp from 'authenticated-app'
 import UnauthenticatedApp from 'unauthenticated-app'
-
-// /login -> Login compoent
-// /admin/business -> view all businesses [RUD]
-// /admin/business/add -> create a new business listing [C]
 
 function App() {
   const [listings, setListings] = useLocalStorageState('listings')

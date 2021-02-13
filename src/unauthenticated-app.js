@@ -20,9 +20,14 @@ function UnauthenticatedApp() {
 function UnauthenticatedAppRoutes() {
   return (
     <>
-      <Header />
-
       <Switch>
+        {/* Prevent Login from rendering Header and Footer component */}
+        <Route path="/login">
+          <Login />
+        </Route>
+
+        <Header />
+
         <Route path="/" exact>
           <Home />
         </Route>
@@ -32,15 +37,12 @@ function UnauthenticatedAppRoutes() {
         <Route path="/listings/:id">
           <Listing />
         </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
         <Route path="*">
           <NotFound />
         </Route>
-      </Switch>
 
-      <Footer />
+        <Footer />
+      </Switch>
     </>
   )
 }
