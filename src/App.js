@@ -9,7 +9,7 @@ import { ListingsData } from './_data'
 import NotFound from './pages/NotFound'
 import AdminListings from './pages/AdminListings'
 import AdminListing from './pages/AdminListing'
-import ProtectedRoute from './hoc/ProtectedRoute'
+import { useAuth } from 'context/AuthContext'
 
 // /login -> Login compoent
 // /admin/business -> view all businesses [RUD]
@@ -17,6 +17,9 @@ import ProtectedRoute from './hoc/ProtectedRoute'
 
 function App() {
   const [listings, setListings] = useLocalStorageState('listings')
+  const { user } = useAuth()
+
+  console.log(user)
 
   React.useEffect(() => {
     if (!listings) {

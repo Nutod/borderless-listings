@@ -1,16 +1,15 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useForm } from 'react-hook-form'
-import { Redirect, useLocation } from 'react-router-dom'
-import { useAuth } from 'hooks/useAuth'
+import { Redirect } from 'react-router-dom'
+import { useAuth } from 'context/AuthContext'
 
 // SUCCESSFUL Login will redirect to the admin page
 // Otherwise, display the toast component
 
 export default function Login() {
-  const { login } = useAuth()
-  const { state } = useLocation()
-  const [redirectToReferrer, setRedirectToReferrer] = React.useState(false)
+  const { login, user } = useAuth()
+  const [redirect, setRedirect] = React.useState(false)
   const { register, errors, handleSubmit } = useForm()
   const onSubmit = ({ username, password }) => {
     if (
@@ -18,14 +17,16 @@ export default function Login() {
       password === process.env.REACT_APP_PASSWORD
     ) {
       login()
-      setRedirectToReferrer(true)
+      setRedirect(true)
     } else {
       alert('Admin details not correct')
     }
   }
 
-  if (redirectToReferrer) {
-    return <Redirect to={state?.from || '/admin/listings'} />
+  console.log(user)
+
+  if (redirect) {
+    return <Redirect to="/admin/listings" />
   }
 
   return (
