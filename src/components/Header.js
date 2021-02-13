@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import { useAuth } from '../hooks/useAuth'
 
 // TODO: Add Error Boundary
 // TODO: Update the Favicon
 
 export default function Header() {
+  const { auth, logout } = useAuth()
+
   return (
     <header className="text-gray-600 body-font border-b">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
@@ -26,12 +29,21 @@ export default function Header() {
           <span className="ml-3 text-xl">Business Directory</span>
         </Link>
 
-        <Link
-          to="/login"
-          className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
-        >
-          Login
-        </Link>
+        {auth ? (
+          <button
+            onClick={logout}
+            className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </header>
   )

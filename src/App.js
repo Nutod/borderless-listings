@@ -8,7 +8,7 @@ import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
 import NotFound from './pages/NotFound'
 import AdminListings from './pages/AdminListings'
-import AdminListingsAdd from './pages/AdminListingsAdd'
+import AdminListing from './pages/AdminListing'
 import ProtectedRoute from './hoc/ProtectedRoute'
 
 // /login -> Login compoent
@@ -38,12 +38,12 @@ function App() {
       <Route path="/login">
         <Login />
       </Route>
-      <ProtectedRoute path="/admin/listings" exact>
+      <Route path="/admin/listings" exact>
         <AdminListings />
-      </ProtectedRoute>
-      <ProtectedRoute path="/admin/listings/add">
-        <AdminListingsAdd />
-      </ProtectedRoute>
+      </Route>
+      <Route path="/admin/listings/:id">
+        <AdminListing />
+      </Route>
       <Route path="*">
         <NotFound />
       </Route>

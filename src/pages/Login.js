@@ -19,6 +19,8 @@ export default function Login() {
     ) {
       login()
       setRedirectToReferrer(true)
+    } else {
+      alert('Admin details not correct')
     }
   }
 
@@ -42,7 +44,10 @@ export default function Login() {
               Admin Login
             </h2>
             <div className="relative mb-4">
-              <label for="name" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="username"
+                className="leading-7 text-sm text-gray-600"
+              >
                 Username
               </label>
               <input
@@ -59,7 +64,10 @@ export default function Login() {
               )}
             </div>
             <div className="relative mb-4">
-              <label for="password" className="leading-7 text-sm text-gray-600">
+              <label
+                htmlFor="password"
+                className="leading-7 text-sm text-gray-600"
+              >
                 Password
               </label>
               <input
