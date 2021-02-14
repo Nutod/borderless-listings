@@ -6,8 +6,6 @@ import useListings from 'hooks/useListings'
 import ListingsSearch from './ListingsSearch'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 
 export default function Listings() {
   const [category, setCategory] = React.useState('all')
@@ -37,8 +35,6 @@ export default function Listings() {
       <Helmet>
         <title>Business Directory &rarr; Listings</title>
       </Helmet>
-
-      <Header />
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -75,8 +71,6 @@ export default function Listings() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

@@ -14,10 +14,10 @@ export default function Login() {
 
   const onSubmit = async ({ username, password }) => {
     setLoading(true)
-    await delay()
     login({ username, password })
+    await delay()
     setLoading(false)
-    history.push('/admin/listings')
+    setTimeout(() => history.push('/admin/listings'), 2000)
     // if (
     //   username === process.env.REACT_APP_USERNAME &&
     //   password === process.env.REACT_APP_PASSWORD

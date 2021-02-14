@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
 import { FullPageSpinner } from 'components/FullPageSpinner'
@@ -15,6 +15,8 @@ import Listings from 'pages/Listings'
 import Listing from 'pages/Listing'
 
 import ProtectedRoute from 'hoc/ProtectedRoute'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 function UnauthenticatedRoutes() {
   return (
@@ -40,6 +42,9 @@ function UnauthenticatedRoutes() {
 
 function App() {
   const [listings, setListings] = useLocalStorageState('listings')
+  const { pathname } = useLocation()
+
+  console.log(pathname)
 
   React.useEffect(() => {
     if (!listings) {
@@ -50,15 +55,17 @@ function App() {
   // we probably might not need to suspend this JSX component
   return (
     <React.Suspense fallback={<FullPageSpinner />}>
+      {pathname !== '/login' ? <Header /> : null}
       <Switch>
-        <ProtectedRoute path="/admin/listings" exact>
-          <AdminListings />
-        </ProtectedRoute>
         <Route path="/admin/listings/:id">
           <AdminListing />
         </Route>
+        <ProtectedRoute path="/admin/listings" exact>
+          <AdminListings />
+        </ProtectedRoute>
         <UnauthenticatedRoutes />
       </Switch>
+      {pathname !== '/login' ? <Footer /> : null}
     </React.Suspense>
   )
 }

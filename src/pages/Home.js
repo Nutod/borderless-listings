@@ -17,8 +17,6 @@ export default function Home() {
         <title>Business Directory &rarr; Home</title>
       </Helmet>
 
-      <Header />
-
       <section className="text-gray-600 body-font bg-gray-100">
         <div className="container mx-auto flex flex-col px-5 py-24 pb-12 justify-center items-center">
           <div className="w-full md:w-2/3 flex flex-col mb-16 items-center sm:items-center md:items-start text-center sm:text-center md:text-left">
@@ -103,8 +101,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

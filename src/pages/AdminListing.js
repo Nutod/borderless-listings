@@ -4,8 +4,6 @@ import Modal from 'react-modal'
 import useListing from 'hooks/useListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 
 const customStyles = {
   content: {
@@ -31,8 +29,6 @@ export default function Listing() {
       <Helmet>
         <title>Business Directory &rarr; Admin Listing {id}</title>
       </Helmet>
-
-      <Header />
 
       <Modal isOpen={false} style={customStyles}>
         <div class="rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
@@ -164,8 +160,6 @@ export default function Listing() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

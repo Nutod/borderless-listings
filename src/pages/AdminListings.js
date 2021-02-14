@@ -3,8 +3,6 @@ import { Helmet } from 'react-helmet'
 import useListings from 'hooks/useListings'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 
 export default function AdminListings() {
   const [category, setCategory] = React.useState('all')
@@ -27,8 +25,6 @@ export default function AdminListings() {
       <Helmet>
         <title>Business Directory &rarr; Admin Listings</title>
       </Helmet>
-
-      <Header />
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -70,8 +66,6 @@ export default function AdminListings() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   )
 }

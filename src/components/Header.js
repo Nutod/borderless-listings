@@ -23,8 +23,8 @@ export default function Header() {
   const logUserOut = async () => {
     setLoading(true)
     await delay()
-    logout()
     setLoading(false)
+    logout()
   }
 
   return (
