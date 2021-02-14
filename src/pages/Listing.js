@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import useListing from 'hooks/useListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 export default function Listing() {
   const { id } = useParams()
@@ -17,6 +19,8 @@ export default function Listing() {
       <Helmet>
         <title>Business Directory &rarr; Listing {id}</title>
       </Helmet>
+
+      <Header />
 
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
@@ -59,6 +63,8 @@ export default function Listing() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }

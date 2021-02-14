@@ -1,10 +1,10 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 import useListings from 'hooks/useListings'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 export default function AdminListings() {
   const [category, setCategory] = React.useState('all')

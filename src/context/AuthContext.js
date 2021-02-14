@@ -12,9 +12,12 @@ async function bootstrapAppData() {
 
   if (token) {
     // in the real world, the token will be used to fetch actual user data
+    // hopefully there'll be some data from here. If not refreshing the app will be necessary
     const data = await client('users/1')
 
-    user = data
+    if (data) {
+      user = data
+    }
   }
 
   return user
@@ -82,13 +85,4 @@ function useAuth() {
   return context
 }
 
-function useClient() {
-  const { user } = useAuth()
-  const token = user?.username
-  return React.useCallback(
-    (endpoint, config) => client(endpoint, { ...config, token }),
-    [token]
-  )
-}
-
-export { AuthProvider, useAuth, useClient }
+export { AuthProvider, useAuth }

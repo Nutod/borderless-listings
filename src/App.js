@@ -1,15 +1,45 @@
 import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { useLocalStorageState } from './hooks/useLocalStorage'
 import { ListingsData } from './_data'
-import { useAuth } from 'context/AuthContext'
-import AuthenticatedApp from 'authenticated-app'
-import UnauthenticatedApp from 'unauthenticated-app'
+import { FullPageSpinner } from 'components/FullPageSpinner'
+
+import Home from 'pages/Home'
+import Login from 'pages/Login'
+import NotFound from 'pages/NotFound'
+
+import AdminListings from 'pages/AdminListings'
+import AdminListing from 'pages/AdminListing'
+
+import Listings from 'pages/Listings'
+import Listing from 'pages/Listing'
+
+import ProtectedRoute from 'hoc/ProtectedRoute'
+
+function UnauthenticatedRoutes() {
+  return (
+    <Switch>
+      <Route path="/listings/:id">
+        <Listing />
+      </Route>
+      <Route path="/listings" exact>
+        <Listings />
+      </Route>
+      <Route path="/login">
+        <Login />
+      </Route>
+      <Route exact path="/">
+        <Home />
+      </Route>
+      <Route path="*">
+        <NotFound />
+      </Route>
+    </Switch>
+  )
+}
 
 function App() {
   const [listings, setListings] = useLocalStorageState('listings')
-  const { user } = useAuth()
-
-  console.log(user)
 
   React.useEffect(() => {
     if (!listings) {
@@ -17,31 +47,20 @@ function App() {
     }
   }, [listings, setListings])
 
-  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />
+  // we probably might not need to suspend this JSX component
+  return (
+    <React.Suspense fallback={<FullPageSpinner />}>
+      <Switch>
+        <ProtectedRoute path="/admin/listings" exact>
+          <AdminListings />
+        </ProtectedRoute>
+        <Route path="/admin/listings/:id">
+          <AdminListing />
+        </Route>
+        <UnauthenticatedRoutes />
+      </Switch>
+    </React.Suspense>
+  )
 }
 
 export default App
-
-// <Switch>
-//   <Route path="/" exact>
-//     <Home listings={listings.slice(0, 4)} />
-//   </Route>
-//   <Route path="/listings" exact>
-//     <Listings />
-//   </Route>
-//   <Route path="/listings/:id">
-//     <Listing />
-//   </Route>
-//   <Route path="/login">
-//     <Login />
-//   </Route>
-//   <Route path="/admin/listings" exact>
-//     <AdminListings />
-//   </Route>
-//   <Route path="/admin/listings/:id">
-//     <AdminListing />
-//   </Route>
-//   <Route path="*">
-//     <NotFound />
-//   </Route>
-// </Switch>

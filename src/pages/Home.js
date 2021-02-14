@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Loading from 'components/Loading'
 import Card from 'components/Card'
 import useListings from 'hooks/useListings'
+import Header from 'components/Header'
+import Footer from 'components/Footer'
 
 export default function Home() {
   const [searchString, setSearchString] = React.useState('')
@@ -14,6 +16,8 @@ export default function Home() {
       <Helmet>
         <title>Business Directory &rarr; Home</title>
       </Helmet>
+
+      <Header />
 
       <section className="text-gray-600 body-font bg-gray-100">
         <div className="container mx-auto flex flex-col px-5 py-24 pb-12 justify-center items-center">
@@ -99,6 +103,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   )
 }

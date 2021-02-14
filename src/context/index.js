@@ -4,9 +4,9 @@ import { AuthProvider } from './AuthContext'
 
 function AppProviders({ children }) {
   return (
-    <Router>
-      <AuthProvider>{children}</AuthProvider>
-    </Router>
+    <AuthProvider>
+      <Router>{children}</Router>
+    </AuthProvider>
   )
 }
 

@@ -1,11 +1,31 @@
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
 import { useAuth } from 'context/AuthContext'
+import { delay } from 'utils/delay'
 
-// TODO: Add Error Boundary
-// TODO: Update the Favicon
+function NavLink(props) {
+  const match = useRouteMatch(props.to)
+
+  return (
+    <Link
+      {...props}
+      className={`mr-4 inline-flex items-center rounded border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-base mt-4 md:mt-0 ${
+        match?.isExact && 'bg-gray-100'
+      }`}
+    />
+  )
+}
 
 export default function Header() {
-  const { auth, logout } = useAuth()
+  const { user, logout } = useAuth()
+  const [loading, setLoading] = React.useState(false)
+
+  const logUserOut = async () => {
+    setLoading(true)
+    await delay()
+    logout()
+    setLoading(false)
+  }
 
   return (
     <header className="text-gray-600 body-font border-b">
@@ -29,21 +49,31 @@ export default function Header() {
           <span className="ml-3 text-xl">Business Directory</span>
         </Link>
 
-        {auth ? (
-          <button
-            onClick={logout}
-            className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
-          >
-            Logout
-          </button>
-        ) : (
-          <Link
-            to="/login"
-            className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
-          >
-            Login
-          </Link>
-        )}
+        <div>
+          {user ? (
+            <>
+              <div>
+                <NavLink to="/admin/listings">Admin Listings</NavLink>
+                <button
+                  onClick={logUserOut}
+                  disabled={loading}
+                  className={`inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0 ${
+                    loading && 'pointer-events-none opacity-50'
+                  }`}
+                >
+                  {loading ? 'Please wait' : 'Logout'}
+                </button>
+              </div>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="inline-flex w-30 items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   )

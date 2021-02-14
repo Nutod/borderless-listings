@@ -1,19 +1,19 @@
 import { Redirect, Route } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+import { useAuth } from 'context/AuthContext'
 
 export default function ProtectedRoute({ children, ...rest }) {
-  const { auth } = useAuth()
+  const { user } = useAuth()
 
   return (
     <Route
       {...rest}
       render={({ location }) => {
-        return auth ? (
+        return user?.username ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: '/login',
+              pathname: '/',
               state: { from: location },
             }}
           />

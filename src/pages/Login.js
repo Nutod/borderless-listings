@@ -1,38 +1,37 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useForm } from 'react-hook-form'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { useAuth } from 'context/AuthContext'
 import Loading from 'components/Loading'
-
-// SUCCESSFUL Login will redirect to the admin page
-// Otherwise, display the toast component
+import { delay } from 'utils/delay'
 
 export default function Login() {
   const { register, errors, handleSubmit } = useForm()
-  const authObject = useAuth()
-  const [redirect, setRedirect] = React.useState(false)
+  const { login, user } = useAuth()
+  const history = useHistory()
   const [loading, setLoading] = React.useState(false)
 
-  const onSubmit = ({ username, password }) => {
+  const onSubmit = async ({ username, password }) => {
     setLoading(true)
-    if (
-      username === process.env.REACT_APP_USERNAME &&
-      password === process.env.REACT_APP_PASSWORD
-    ) {
-      authObject.login({ username, password })
-      setRedirect(true)
-      setLoading(false)
-    } else {
-      alert('Admin details not correct')
-      setLoading(false)
-    }
+    await delay()
+    login({ username, password })
+    setLoading(false)
+    history.push('/admin/listings')
+    // if (
+    //   username === process.env.REACT_APP_USERNAME &&
+    //   password === process.env.REACT_APP_PASSWORD
+    // ) {
+    // } else {
+    //   alert('Admin details not correct')
+    //   setLoading(false)
+    // }
   }
 
   // console.log(user)
-  console.log(authObject)
+  // console.log(authObject)
 
-  if (redirect) {
+  if (user) {
     return <Redirect to="/admin/listings" />
   }
 
