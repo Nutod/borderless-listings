@@ -5,6 +5,7 @@ import { Redirect, useHistory } from 'react-router-dom'
 import { useAuth } from 'context/AuthContext'
 import Loading from 'components/Loading'
 import { delay } from 'utils/delay'
+import toast from 'react-hot-toast'
 
 export default function Login() {
   const { register, errors, handleSubmit } = useForm()
@@ -13,19 +14,19 @@ export default function Login() {
   const [loading, setLoading] = React.useState(false)
 
   const onSubmit = async ({ username, password }) => {
-    setLoading(true)
-    login({ username, password })
-    await delay()
-    setLoading(false)
-    setTimeout(() => history.push('/admin/listings'), 2000)
-    // if (
-    //   username === process.env.REACT_APP_USERNAME &&
-    //   password === process.env.REACT_APP_PASSWORD
-    // ) {
-    // } else {
-    //   alert('Admin details not correct')
-    //   setLoading(false)
-    // }
+    if (
+      username === process.env.REACT_APP_USERNAME &&
+      password === process.env.REACT_APP_PASSWORD
+    ) {
+      setLoading(true)
+      login({ username, password })
+      await delay()
+      setLoading(false)
+      setTimeout(() => history.push('/admin/listings'), 2000)
+    } else {
+      toast.error('Credentials are not correct')
+      setLoading(false)
+    }
   }
 
   if (user) {
