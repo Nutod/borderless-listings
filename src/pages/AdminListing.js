@@ -5,40 +5,138 @@ import Modal from 'react-modal'
 import useListing from 'hooks/useQueryListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
+import { DeleteListing } from '../components/DeleteListing'
 
-const customStyles = {
+Modal.setAppElement('#root')
+
+export const customStyles = {
   overlay: {
     position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
   content: {
     position: 'absolute',
-    // top: '40px',
-    // left: '40px',
-    // right: '40px',
-    // bottom: '40px',
-    // background: 'crimson',
     margin: '0 auto',
     width: '70vw',
+    height: 'min-content',
     overflow: 'auto',
+    top: '50%',
+    transform: 'translateY(-50%)',
     WebkitOverflowScrolling: 'touch',
     borderRadius: '4px',
     outline: 'none',
-    padding: '20px',
+    padding: '10px',
   },
+}
+
+function UpdateListing({
+  listing,
+  closeUpdateListingModal,
+  updateListingModalOpen,
+}) {
+  return (
+    <Modal
+      isOpen={updateListingModalOpen}
+      style={customStyles}
+      onRequestClose={closeUpdateListingModal}
+    >
+      <div className="rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <h2 className="text-gray-900 text-lg font-medium title-font mb-5">
+          {listing.name}
+        </h2>
+        <div className="relative mb-4">
+          <label
+            htmlFor="full-name"
+            className="leading-7 text-sm text-gray-600"
+          >
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="full-name"
+            name="full-name"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <div className="relative mb-4">
+          <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <div className="relative mb-4">
+          <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <div className="relative mb-4">
+          <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <div className="relative mb-4">
+          <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <div className="relative mb-4">
+          <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          />
+        </div>
+        <button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          Update
+        </button>
+      </div>
+    </Modal>
+  )
 }
 
 export default function Listing() {
   const { id } = useParams()
   const listing = useListing(id)
-  const [modalIsOpen, setIsOpen] = React.useState(false)
+  const [updateListingModalOpen, setUpdateListingModalOpen] = React.useState(
+    false
+  )
+  const [deleteListingModalOpen, setDeleteListingModalOpen] = React.useState(
+    false
+  )
 
-  const closeModal = () => {
-    setIsOpen(false)
+  const closeUpdateListingModal = () => {
+    setUpdateListingModalOpen(false)
+  }
+
+  const closeDeleteListingModal = () => {
+    setDeleteListingModalOpen(false)
   }
 
   if (!listing) {
@@ -51,86 +149,16 @@ export default function Listing() {
         <title>Business Directory &rarr; Admin Listing {id}</title>
       </Helmet>
 
-      <Modal
-        isOpen={modalIsOpen}
-        style={customStyles}
-        onRequestClose={closeModal}
-      >
-        <div class="rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">
-            {listing.name}
-          </h2>
-          <div class="relative mb-4">
-            <label for="full-name" class="leading-7 text-sm text-gray-600">
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="full-name"
-              name="full-name"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <div class="relative mb-4">
-            <label for="email" class="leading-7 text-sm text-gray-600">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-            />
-          </div>
-          <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-            Update
-          </button>
-        </div>
-      </Modal>
+      <DeleteListing
+        deleteListingModalOpen={deleteListingModalOpen}
+        closeDeleteListingModal={closeDeleteListingModal}
+      />
+
+      <UpdateListing
+        listing={listing}
+        closeUpdateListingModal={closeUpdateListingModal}
+        updateListingModalOpen={updateListingModalOpen}
+      />
 
       <section className="text-gray-600 body-font">
         <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
@@ -174,14 +202,17 @@ export default function Listing() {
                 </span>
               ))}
             </p>
-            <div class="flex justify-center mt-4">
+            <div className="flex justify-center mt-4">
               <button
-                onClick={() => setIsOpen(true)}
-                class="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+                onClick={() => setUpdateListingModalOpen(true)}
+                className="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
               >
                 Update Listing
               </button>
-              <button class="ml-4 inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">
+              <button
+                onClick={() => setDeleteListingModalOpen(true)}
+                className="ml-4 inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg"
+              >
                 Delete Listing
               </button>
             </div>
