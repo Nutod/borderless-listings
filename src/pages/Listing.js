@@ -1,12 +1,18 @@
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
-import useListing from 'hooks/useListing'
+import useQueryListing from 'hooks/useQueryListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
+import useQueryListings from 'hooks/useQueryListings'
 
 export default function Listing() {
   const { id } = useParams()
-  const listing = useListing(id)
+  const listing = useQueryListing(id)
+  const listings = useQueryListings()
+
+  console.log(id)
+
+  console.log(listings[0].id)
 
   if (!listing) {
     return <NotFound />
@@ -23,7 +29,7 @@ export default function Listing() {
           <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
             <img
               className="object-cover object-center rounded"
-              alt="hero"
+              alt="Cover"
               src={listing.largeImage}
             />
           </div>

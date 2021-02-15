@@ -28,9 +28,6 @@ export default function Login() {
     // }
   }
 
-  // console.log(user)
-  // console.log(authObject)
-
   if (user) {
     return <Redirect to="/admin/listings" />
   }
@@ -62,6 +59,7 @@ export default function Login() {
                 id="username"
                 name="username"
                 ref={register({ required: true })}
+                aria-invalid={errors.username ? 'true' : 'false'}
                 className="w-full bg-white rounded border border-gray-300 focus:border-red-700 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
               {errors.username && (

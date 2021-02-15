@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
 import Modal from 'react-modal'
-import useListing from 'hooks/useListing'
+import useListing from 'hooks/useQueryListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
 

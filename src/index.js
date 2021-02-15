@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
+import { Toaster } from 'react-hot-toast'
 import { AppProviders } from 'context'
 import App from './App'
 
@@ -9,6 +10,7 @@ import './index.css'
 ReactDOM.render(
   <React.StrictMode>
     <AppProviders>
+      <Toaster position="top-right" />
       <App />
     </AppProviders>
   </React.StrictMode>,

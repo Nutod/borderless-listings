@@ -1,6 +1,6 @@
 import { useLocalStorageState } from './useLocalStorage'
 
-export default function useListings() {
+export default function useQueryListings() {
   const [listings] = useLocalStorageState('listings')
 
   return listings

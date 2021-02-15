@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import useListings from 'hooks/useListings'
+import useListings from 'hooks/useQueryListings'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
 
