@@ -1,3 +1,4 @@
+import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useParams } from 'react-router-dom'
 import Modal from 'react-modal'
@@ -6,19 +7,39 @@ import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
 
 const customStyles = {
+  overlay: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    position: 'absolute',
+    // top: '40px',
+    // left: '40px',
+    // right: '40px',
+    // bottom: '40px',
+    // background: 'crimson',
+    margin: '0 auto',
+    width: '70vw',
+    overflow: 'auto',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '20px',
   },
 }
 
 export default function Listing() {
   const { id } = useParams()
   const listing = useListing(id)
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+
+  const closeModal = () => {
+    setIsOpen(false)
+  }
 
   if (!listing) {
     return <NotFound />
@@ -30,7 +51,11 @@ export default function Listing() {
         <title>Business Directory &rarr; Admin Listing {id}</title>
       </Helmet>
 
-      <Modal isOpen={false} style={customStyles}>
+      <Modal
+        isOpen={modalIsOpen}
+        style={customStyles}
+        onRequestClose={closeModal}
+      >
         <div class="rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
           <h2 class="text-gray-900 text-lg font-medium title-font mb-5">
             {listing.name}
@@ -150,7 +175,10 @@ export default function Listing() {
               ))}
             </p>
             <div class="flex justify-center mt-4">
-              <button class="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
+              <button
+                onClick={() => setIsOpen(true)}
+                class="inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg"
+              >
                 Update Listing
               </button>
               <button class="ml-4 inline-flex text-white bg-red-700 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg">

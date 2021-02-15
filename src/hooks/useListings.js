@@ -1,9 +1,7 @@
 import { useLocalStorageState } from './useLocalStorage'
 
-export default function useListings(category = 'all') {
+export default function useListings() {
   const [listings] = useLocalStorageState('listings')
 
-  if (category === 'all') {
-    return listings
-  }
+  return listings
 }

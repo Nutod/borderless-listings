@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundColor: ['active'],
       opacity: ['disabled'],
+      scale: ['focus-within'],
     },
   },
   variants: {

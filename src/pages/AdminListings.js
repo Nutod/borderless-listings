@@ -7,6 +7,8 @@ import useCategories from 'hooks/useCategories'
 export default function AdminListings() {
   const [category, setCategory] = React.useState('all')
   const [categoryListings, setCategoryListings] = React.useState([])
+  const [searchString, setSearchString] = React.useState('')
+
   const listings = useListings()
   const categories = useCategories()
 
@@ -19,6 +21,16 @@ export default function AdminListings() {
       )
     }
   }, [category, listings])
+
+  React.useEffect(() => {
+    setCategoryListings(
+      listings.filter(
+        listing =>
+          listing.name.toLowerCase().includes(searchString.toLowerCase()) ||
+          listing.description.toLowerCase().includes(searchString.toLowerCase())
+      )
+    )
+  }, [listings, searchString])
 
   return (
     <>
@@ -49,20 +61,30 @@ export default function AdminListings() {
               </div>
             </div>
             <div>
-              <button className="inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0">
-                Add Business
-              </button>
+              <input
+                type="text"
+                id="search-field"
+                name="search-field"
+                placeholder="Enter a search"
+                value={searchString}
+                onChange={e => setSearchString(e.target.value)}
+                className="w-48 rounded border bg-opacity-50 border-gray-300 focus:ring-2 focus:ring-red-200 focus:bg-transparent focus:border-red-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+              />
             </div>
           </div>
           <div className="flex flex-wrap -m-4">
-            {categoryListings.map(listing => (
-              <Card
-                key={listing.id}
-                listing={listing}
-                to={`/admin/listings/${listing.id}`}
-                bg
-              />
-            ))}
+            {categoryListings.length ? (
+              categoryListings.map(listing => (
+                <Card
+                  key={listing.id}
+                  listing={listing}
+                  to={`/admin/listings/${listing.id}`}
+                  bg
+                />
+              ))
+            ) : (
+              <>No results found</>
+            )}
           </div>
         </div>
       </section>

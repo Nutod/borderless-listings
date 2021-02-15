@@ -3,13 +3,11 @@ import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import Loading from 'components/Loading'
 import Card from 'components/Card'
-import useListings from 'hooks/useListings'
-import Header from 'components/Header'
-import Footer from 'components/Footer'
 
-export default function Home() {
+// TODO: Add new query and mutation hooks
+
+export default function Home({ listings }) {
   const [searchString, setSearchString] = React.useState('')
-  const listings = useListings()
 
   return (
     <>

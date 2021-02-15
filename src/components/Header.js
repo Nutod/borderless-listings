@@ -9,7 +9,7 @@ function NavLink(props) {
   return (
     <Link
       {...props}
-      className={`mr-4 inline-flex items-center rounded border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-base mt-4 md:mt-0 ${
+      className={`mr-2 sm:mr-4 inline-flex items-center rounded border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-base mt-4 md:mt-0 ${
         match?.isExact && 'bg-gray-100'
       }`}
     />
@@ -52,12 +52,13 @@ export default function Header() {
         <div>
           {user ? (
             <>
-              <div>
+              <div className="flex justify-center flex-wrap">
+                <NavLink to="/admin/listings/add">Add Listings</NavLink>
                 <NavLink to="/admin/listings">Admin Listings</NavLink>
                 <button
                   onClick={logUserOut}
                   disabled={loading}
-                  className={`inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0 ${
+                  className={`mr-2 md:mr-0 inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0 ${
                     loading && 'pointer-events-none opacity-50'
                   }`}
                 >

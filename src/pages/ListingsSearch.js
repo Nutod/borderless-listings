@@ -22,6 +22,9 @@ export default function ListingsSearch({ name }) {
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
+            Search Results for term: {name}
+          </h1>
           <div className="flex flex-wrap -m-4">
             {listings.map(listing => (
               <Card

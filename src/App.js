@@ -14,11 +14,13 @@ import AdminListing from 'pages/AdminListing'
 import Listings from 'pages/Listings'
 import Listing from 'pages/Listing'
 
-import ProtectedRoute from 'hoc/ProtectedRoute'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
-function UnauthenticatedRoutes() {
+import ProtectedRoute from 'hoc/ProtectedRoute'
+import AdminListingsAdd from 'pages/AdminListingsAdd'
+
+function UnauthenticatedRoutes({ listings }) {
   return (
     <Switch>
       <Route path="/listings/:id">
@@ -31,7 +33,7 @@ function UnauthenticatedRoutes() {
         <Login />
       </Route>
       <Route exact path="/">
-        <Home />
+        <Home listings={listings} />
       </Route>
       <Route path="*">
         <NotFound />
@@ -44,8 +46,6 @@ function App() {
   const [listings, setListings] = useLocalStorageState('listings')
   const { pathname } = useLocation()
 
-  console.log(pathname)
-
   React.useEffect(() => {
     if (!listings) {
       setListings(ListingsData)
@@ -57,13 +57,16 @@ function App() {
     <React.Suspense fallback={<FullPageSpinner />}>
       {pathname !== '/login' ? <Header /> : null}
       <Switch>
-        <Route path="/admin/listings/:id">
+        <ProtectedRoute path="/admin/listings/add" exact>
+          <AdminListingsAdd />
+        </ProtectedRoute>
+        <ProtectedRoute path="/admin/listings/:id">
           <AdminListing />
-        </Route>
+        </ProtectedRoute>
         <ProtectedRoute path="/admin/listings" exact>
           <AdminListings />
         </ProtectedRoute>
-        <UnauthenticatedRoutes />
+        <UnauthenticatedRoutes listings={listings.slice(0, 4)} />
       </Switch>
       {pathname !== '/login' ? <Footer /> : null}
     </React.Suspense>
