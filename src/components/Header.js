@@ -1,9 +1,32 @@
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { Link, useRouteMatch } from 'react-router-dom'
+import { useAuth } from 'context/AuthContext'
+import { delay } from 'utils/delay'
 
-// TODO: Add React Helmet
-// TODO: Update the Favicon
+function NavLink(props) {
+  const match = useRouteMatch(props.to)
+
+  return (
+    <Link
+      {...props}
+      className={`mr-2 sm:mr-4 inline-flex items-center rounded border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 text-base mt-4 md:mt-0 ${
+        match?.isExact && 'bg-gray-100'
+      }`}
+    />
+  )
+}
 
 export default function Header() {
+  const { user, logout } = useAuth()
+  const [loading, setLoading] = React.useState(false)
+
+  const logUserOut = async () => {
+    setLoading(true)
+    await delay()
+    setLoading(false)
+    logout()
+  }
+
   return (
     <header className="text-gray-600 body-font border-b">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
@@ -15,10 +38,10 @@ export default function Header() {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            className="w-10 h-10 text-white p-2 bg-blue-700 rounded-full"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            className="w-10 h-10 text-white p-2 bg-red-700 rounded-full"
             viewBox="0 0 24 24"
           >
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
@@ -26,12 +49,32 @@ export default function Header() {
           <span className="ml-3 text-xl">Business Directory</span>
         </Link>
 
-        <Link
-          to="/login"
-          className="inline-flex items-center bg-blue-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-base mt-4 md:mt-0"
-        >
-          Login
-        </Link>
+        <div>
+          {user ? (
+            <>
+              <div className="flex justify-center flex-wrap">
+                <NavLink to="/admin/listings/add">Add Listings</NavLink>
+                <NavLink to="/admin/listings">Admin Listings</NavLink>
+                <button
+                  onClick={logUserOut}
+                  disabled={loading}
+                  className={`mr-2 md:mr-0 inline-flex items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0 ${
+                    loading && 'pointer-events-none opacity-50'
+                  }`}
+                >
+                  {loading ? 'Please wait' : 'Logout'}
+                </button>
+              </div>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="inline-flex w-30 items-center bg-red-700 text-white border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-base mt-4 md:mt-0"
+            >
+              Login
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   )
