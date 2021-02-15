@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import useListings from 'hooks/useQueryListings'
+import useQueryListings from 'hooks/useQueryListings'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
 
@@ -9,7 +9,7 @@ export default function AdminListings() {
   const [categoryListings, setCategoryListings] = React.useState([])
   const [searchString, setSearchString] = React.useState('')
 
-  const listings = useListings()
+  const listings = useQueryListings()
   const categories = useCategories()
 
   React.useEffect(() => {

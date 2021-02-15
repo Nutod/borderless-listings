@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import toast from 'react-hot-toast'
-import useListing from 'hooks/useQueryListing'
+import useQueryListing from 'hooks/useQueryListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
 import { DeleteListing } from '../components/DeleteListing'
@@ -324,7 +324,7 @@ function UpdateListing({
 
 export default function Listing() {
   const { id } = useParams()
-  const listing = useListing(id)
+  const listing = useQueryListing(id)
   const [updateListingModalOpen, setUpdateListingModalOpen] = React.useState(
     false
   )

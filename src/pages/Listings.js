@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useLocation } from 'react-router-dom'
 import { parse } from 'query-string'
-import useListings from 'hooks/useQueryListings'
+import useQueryListings from 'hooks/useQueryListings'
 import ListingsSearch from './ListingsSearch'
 import Card from 'components/Card'
 import useCategories from 'hooks/useCategories'
@@ -10,7 +10,7 @@ import useCategories from 'hooks/useCategories'
 export default function Listings() {
   const [category, setCategory] = React.useState('all')
   const [categoryListings, setCategoryListings] = React.useState([])
-  const listings = useListings()
+  const listings = useQueryListings()
   const categories = useCategories()
   const location = useLocation()
 
