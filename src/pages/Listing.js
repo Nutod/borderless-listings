@@ -3,16 +3,10 @@ import { useParams } from 'react-router-dom'
 import useQueryListing from 'hooks/useQueryListing'
 import NotFound from './NotFound'
 import { categoryStyles } from 'components/categoryStyles'
-import useQueryListings from 'hooks/useQueryListings'
 
 export default function Listing() {
   const { id } = useParams()
   const listing = useQueryListing(id)
-  const listings = useQueryListings()
-
-  console.log(id)
-
-  console.log(listings[0].id)
 
   if (!listing) {
     return <NotFound />

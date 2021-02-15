@@ -42,7 +42,10 @@ export default function AdminListingsAdd() {
 
     setLoading(true)
     await delay()
-    setListings([{ ...data, categories, id: Date.now() }, ...listings])
+    setListings([
+      { ...data, categories, id: Date.now().toString() },
+      ...listings,
+    ])
 
     setLoading(false)
     toast.success('New listing was successfully added')
@@ -80,7 +83,7 @@ export default function AdminListingsAdd() {
                   type="text"
                   id="name"
                   name="name"
-                  ref={register({ required: true })}
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.name && (
@@ -98,7 +101,7 @@ export default function AdminListingsAdd() {
                   type="email"
                   id="email"
                   name="email"
-                  ref={register({ required: true })}
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.email && (
@@ -136,7 +139,8 @@ export default function AdminListingsAdd() {
                   type="text"
                   id="websiteUrl"
                   name="websiteUrl"
-                  ref={register({ required: true })}
+                  placeholder="e.g https://google.com"
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.websiteUrl && (
@@ -157,7 +161,7 @@ export default function AdminListingsAdd() {
                   id="image"
                   name="image"
                   placeholder="e.g https://placeimg.com/160/160/any"
-                  ref={register({ required: true })}
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.image && (
@@ -178,7 +182,7 @@ export default function AdminListingsAdd() {
                   id="largeImage"
                   name="largeImage"
                   placeholder="e.g https://placeimg.com/720/600/any"
-                  ref={register({ required: true })}
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.largeImage && (
@@ -262,7 +266,7 @@ export default function AdminListingsAdd() {
                   type="text"
                   id="description"
                   name="description"
-                  ref={register({ required: true })}
+                  ref={register}
                   className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
                 {errors.description && (

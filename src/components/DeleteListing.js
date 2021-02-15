@@ -1,42 +1,66 @@
-import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import Modal from 'react-modal';
-import toast from 'react-hot-toast';
-import useQueryListings from 'hooks/useQueryListings';
-import { delay } from 'utils/delay';
-import useMutateListings from 'hooks/useMutateListings';
-import { customStyles } from '../pages/AdminListing';
+import React from 'react'
+import { useHistory, useParams } from 'react-router-dom'
+import Modal from 'react-modal'
+import toast from 'react-hot-toast'
+import useQueryListings from 'hooks/useQueryListings'
+import { delay } from 'utils/delay'
+import useMutateListings from 'hooks/useMutateListings'
 
-export function DeleteListing ( { deleteListingModalOpen, closeDeleteListingModal } ) {
-  const { id } = useParams();
-  const [loading, setLoading] = React.useState( false );
-  const history = useHistory();
-  const listings = useQueryListings();
-  const setListings = useMutateListings();
+export const customStyles = {
+  overlay: {
+    position: 'fixed',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  content: {
+    position: 'absolute',
+    margin: '0 auto',
+    width: '70vw',
+    height: 'min-content',
+    overflow: 'scroll',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    WebkitOverflowScrolling: 'touch',
+    borderRadius: '4px',
+    outline: 'none',
+    padding: '10px',
+  },
+}
+
+Modal.setAppElement('#root')
+
+export function DeleteListing({
+  deleteListingModalOpen,
+  closeDeleteListingModal,
+}) {
+  const { id } = useParams()
+  const [loading, setLoading] = React.useState(false)
+  const history = useHistory()
+  const listings = useQueryListings()
+  const setListings = useMutateListings()
 
   const deleteListing = async () => {
-    setLoading( true );
-    // eslint-disable-next-line eqeqeq
-    const filteredListings = listings.filter( listing => listing.id != id );
+    setLoading(true)
 
-    if ( listings.length > filteredListings.length ) {
-      setListings( filteredListings );
+    const filteredListings = listings.filter(listing => listing.id !== id)
 
-      await delay();
-      setLoading( false );
+    if (listings.length > filteredListings.length) {
+      setListings(filteredListings)
+
+      await delay()
+      setLoading(false)
       // close the modal
-      closeDeleteListingModal();
-      await delay();
-      toast.success( `Listing ${id} was removed` );
-      await delay();
-      history.push( '/admin/listings' );
+      closeDeleteListingModal()
+      await delay()
+      toast.success(`Listing ${id} was removed`)
+      await delay()
+      history.push('/admin/listings')
     } else {
-      await delay();
+      await delay()
       // close the modal
-      closeDeleteListingModal();
-      toast.error( `Listing ${id} was removed` );
+      closeDeleteListingModal()
+      toast.error(`Listing ${id} was removed`)
     }
-  };
+  }
 
   return (
     <Modal
@@ -54,7 +78,9 @@ export function DeleteListing ( { deleteListingModalOpen, closeDeleteListingModa
               <button
                 onClick={deleteListing}
                 disabled={loading}
-                className={`inline-flex text-white bg-red-700 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded ${loading && 'pointer-events-none opacity-50'}`}
+                className={`inline-flex text-white bg-red-700 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded ${
+                  loading && 'pointer-events-none opacity-50'
+                }`}
               >
                 {loading ? 'Please wait' : 'Proceed'}
               </button>
@@ -69,5 +95,5 @@ export function DeleteListing ( { deleteListingModalOpen, closeDeleteListingModa
         </div>
       </section>
     </Modal>
-  );
+  )
 }
