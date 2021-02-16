@@ -4,7 +4,7 @@ export const ListingsData = [
     name: 'Volkman - Douglas',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '467-576-6947',
+    phone: '4675766947',
     email: 'volkmandouglas@yahoo.com',
     categories: ['automotive', 'beauty', 'music'],
     image: 'https://placeimg.com/160/160/transport',
@@ -16,7 +16,7 @@ export const ListingsData = [
     name: 'Cormier Group',
     description:
       'Praesentium sapiente maiores corrupti tempora molestias accusamus illum eum. Officia iure tempora rerum quod veritatis quia nihil. Consequuntur ullam est voluptate unde quo nihil. Eum sunt dolor vel odio quam quibusdam laboriosam qui.',
-    phone: '610-332-9675',
+    phone: '6103329675',
     email: 'cormiergroup@mail.com',
     categories: ['grocery', 'shoes', 'games', 'sports'],
     image: 'https://placeimg.com/160/160/sports',
@@ -28,7 +28,7 @@ export const ListingsData = [
     name: 'Jenkins and Heidenreich',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '521-294-6664',
+    phone: '5212946664',
     email: 'jenkinsheidenreich@yahoo.com',
     categories: ['sports', 'garden'],
     image: 'https://placeimg.com/160/160/city',
@@ -40,7 +40,7 @@ export const ListingsData = [
     name: 'Rosenbaum Group',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '780-936-8543',
+    phone: '7809368543',
     email: 'rosenbaumgroup@yahoo.com',
     categories: ['automotive', 'games', 'shoes'],
     image: 'https://placeimg.com/160/160/business',
@@ -52,7 +52,7 @@ export const ListingsData = [
     name: 'Kiehn Group',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '989-510-3607',
+    phone: '9895103607',
     email: 'kiehngroup@yahoo.com',
     categories: ['books', 'computers'],
     image: 'https://placeimg.com/160/160/technics',
@@ -64,7 +64,7 @@ export const ListingsData = [
     name: 'Stamm Inc',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '374-493-0601',
+    phone: '3744930601',
     email: 'stamminc@yahoo.com',
     categories: ['health', 'grocery'],
     image: 'https://placeimg.com/160/160/animals',
@@ -76,7 +76,7 @@ export const ListingsData = [
     name: 'Treutel and Sons',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '686-220-3722',
+    phone: '6862203722',
     email: 'treutelandsons@yahoo.com',
     categories: ['beauty'],
     image: 'https://placeimg.com/160/160/abstract',
@@ -88,7 +88,7 @@ export const ListingsData = [
     name: 'Baumbach Inc',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '749-377-3258',
+    phone: '7493773258',
     email: 'baumbachinc@yahoo.com',
     categories: ['music', 'movies', 'games'],
     image: 'https://placeimg.com/160/160/food',
@@ -100,7 +100,7 @@ export const ListingsData = [
     name: 'Rutherford and Sons',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '719-950-3842',
+    phone: '7199503842',
     email: 'rutherfordandsons@yahoo.com',
     categories: ['jewelery', 'clothing'],
     image: 'https://placeimg.com/160/160/people',
@@ -112,7 +112,7 @@ export const ListingsData = [
     name: 'Parker - Carter',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '525-690-7380',
+    phone: '5256907380',
     email: 'parkercarter@yahoo.com',
     categories: ['movies', 'home'],
     image: 'https://placeimg.com/160/160/nature',
@@ -124,7 +124,7 @@ export const ListingsData = [
     name: 'Huel Group',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '638-588-1578',
+    phone: '6385881578',
     email: 'huelgroup@yahoo.com',
     categories: ['games', 'shoes'],
     image: 'https://placeimg.com/160/160/fashion',
@@ -136,7 +136,7 @@ export const ListingsData = [
     name: 'Kuhic - Fay',
     description:
       'Quia laboriosam dolor consequatur vero qui voluptatem dolorum temporibus. Enim fuga minima ut delectus sit est est. Quia voluptatem deserunt eos eligendi. Ipsam accusantium incidunt consequatur aliquid. Quia totam quis doloremque laboriosam nihil illo molestias officia. Non voluptates ut repellat earum harum.',
-    phone: '615-522-2237',
+    phone: '6155222237',
     email: 'kuhicfay@yahoo.com',
     categories: ['games'],
     image: 'https://placeimg.com/160/160/nightlife',

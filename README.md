@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Business Listings App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Requirements
 
-## Available Scripts
+The requirements for the app are in accordance with those stated in the [link](https://gist.github.com/tunde-borderlesshr/7f37aa6672ccfc18dc7254955756be49).
 
-In the project directory, you can run:
+Deliverables for this project are two links
 
-### `yarn start`
+1. The GitHub repository(which you have found if you are reading this)
+2. A netlify [link](https://competent-bohr-f33147.netlify.app/) to the running application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Setup and Design Approach
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The UI Library of choice for this application is React. The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) with a custom override - Create React App Configuration Override(CRACO) to allow for more configuration flexibility. Some of the design considerations necessary include(but not limited to)
 
-### `yarn test`
+1. Styling
+2. Routing
+3. State/Cache Management and Data Fetching
+4. Performance
+5. Deployment - Netlify 🚀
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Styling
 
-### `yarn build`
+To make things presentable 😀, styling was done with [Tailwind CSS](https://tailwindcss.com/) and mostly makes use of the defaults available with tailwind but could easily be customized if there's a need for that
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Routing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[React Router v5](https://reactrouter.com/) was used mostly because it offers a declarative approach to Routing closely related to the way React works
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### State/Cache Management
 
-### `yarn eject`
+Mostly because the application is not really huge, I opted to use React's [context API](https://reactjs.org/docs/context.html) as the state manager for authentication, and also as the requirement states to use local storage to persist the state, there are custom hooks for querying and mutating state from local storage. The hooks directory in the /src folder has all the hooks you might come across in every other place across the entire application and the context folder contains the context provider HOC and some custom hooks for setting and updating the authentication state
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+For this section, there are some other alternatives - namely [Redux](https://redux.js.org/) which I explored but not used in the codebase but decided not to go with that because in the real world, query and mutating data(which we're managing through local storage) will be happening through API requests to a backend service and so it's not exactly client state which is where Redux really shines
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Performance
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Here, I've decided not to use most of the performance hooks provided by React - well, because they usually add some [overhead](https://kentcdodds.com/blog/usememo-and-usecallback) to the codebase. However, there are some useCallback and useMemo hooks in the useAsync hook where it seems very necessary to prevent unnecessary application re-renders
